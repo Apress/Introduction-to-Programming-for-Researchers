@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# initialization
+WEBLOG=$1
+
+# given a path to a web log, returns the top 10 ip browsers
+# with the most hits within the time span covered by the web log,
+# as well as the hit count for each.
+gawk '{print $1}' "$WEBLOG"|# print out only column 1 of each record in weblog
+sort |# make identical ip addrs contiguous in output
+uniq -c |# for each group of contiguous ip addrs, print single instance plus count
+sort -n |# numerically sort, by default in ascending order
+tail

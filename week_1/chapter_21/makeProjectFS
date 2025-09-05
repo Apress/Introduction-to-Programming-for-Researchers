@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# given a project name as argument
+# to this executable script,
+# bash instructs machine to make
+# a project filesystem for the project
+# in the project directory in one's
+# home directory.
+# if the project directory doesn't exist,
+# the machine will create it.
+
+# initialization
+PROJPATH=$HOME/project
+PROJ=$1
+
+mkdir -p "$PROJPATH"/"$PROJ"/data/raw     
+mkdir -p "$PROJPATH"/"$PROJ"/data/processed     
+
+
+mkdir -p "$PROJPATH"/"$PROJ"/figure/exploratory
+mkdir -p "$PROJPATH"/"$PROJ"/figure/final
+
+
+mkdir -p "$PROJPATH"/"$PROJ"/script/raw
+mkdir -p "$PROJPATH"/"$PROJ"/script/final
+
+
+mkdir -p "$PROJPATH"/"$PROJ"/text/readme
+mkdir -p "$PROJPATH"/"$PROJ"/text/text_of_analysis

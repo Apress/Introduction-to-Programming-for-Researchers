@@ -1,0 +1,5 @@
+#!/bin/bash
+
+http=$1
+
+wget -O - $http | cat | gawk '{print $1}'| sort | uniq -c | sort -n | tail -1
