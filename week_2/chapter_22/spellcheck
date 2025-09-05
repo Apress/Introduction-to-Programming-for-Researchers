@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# redirect string or file contents into
+# this script to check contents against
+# system dictionary and personal dictionary
+
+DICT=/usr/share/dict/american-english
+MYDICT=~/mydict
+
+tr -d '[:punct:]' |# delete punctuation
+tr -s ' ' '\n' |# substitute spaces with newline chars
+sort |# sort lines
+uniq |# return single instances of grouped identical lines
+grep -E -xvf $DICT |# -x match whole lines, -v select non-matching lines (invert the match); -f take patterns from file
+tr '[:upper:]' '[:lower:]' |#
+grep -E -xvf $DICT |# any common words capitalized in string should now match entries in $DICT, if entries exist
+grep -E -xvf $MYDICT # finally, filter last "misspelled" words against personal dictionary

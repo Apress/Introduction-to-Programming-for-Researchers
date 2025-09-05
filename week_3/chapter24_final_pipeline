@@ -1,0 +1,1 @@
+zcat datafile/hygdata_v41.zip | tail -n +2 | sed -e 's/""//g' | gawk -F',' '$7{print $7}' | wc -l
