@@ -5,8 +5,12 @@
 # available for digital download
 
 # these files are within the same dir as the script
+# if you get: pygame.error: File is not a Windows BMP file
+# comment out these lines and uncomment their bmp equivalents beneath
 background_image_filename = 'sushiplate.jpg'  
 mouse_image_filename = 'fugu.png' 
+#background_image_filename = 'sushiplate.bmp'  
+#mouse_image_filename = 'fugu.bmp'
  
 import pygame 
 from pygame.locals import * 
